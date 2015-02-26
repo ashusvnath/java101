@@ -1,8 +1,11 @@
+import java.util.List;
+import java.util.ArrayList;
+
 interface Audible {
 	public void makeSound();
 }
 
-class MusicalInstrument {
+class MusicalInstrument implements Audible {
 	private String name;
 	private String sound;
 	private String type;
@@ -80,8 +83,15 @@ class Program {
 			new MusicalInstrument("Guitar", "taaaang", "string")
 		};
 
-		for(int i = 0; i < audibles.length; i++) {
-			audibles[i].makeSound();
+		List<Audible> audiblesList = new ArrayList<Audible>();
+		for (Audible audible : audibles) {
+			audiblesList.add(audible);
 		}
+		// audiblesList.add("This is a random string"); 
+		for(Audible audible: audiblesList) {
+			audible.makeSound();
+			// ((Audible) audible).makeSoundmakeSoundmakeSound();
+		}
+		
 	}
 }
