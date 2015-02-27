@@ -1,5 +1,7 @@
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 class Point {
 	private int x,y;
@@ -45,14 +47,14 @@ class Program {
 			new Point(0,0)
 		};
 
+		SortedSet<Point> setOfPoints = new TreeSet<Point>(new PointComparator()); 
+
 		for(Point point: points) {
-			System.out.println(point);
+			setOfPoints.add(point);
 		}
 
-		Arrays.sort(points, new PointComparator());		
-		System.out.println("After sorting:");
 
-		for(Point point: points) {
+		for(Point point: setOfPoints) {
 			System.out.println(point);
 		}
 	}
